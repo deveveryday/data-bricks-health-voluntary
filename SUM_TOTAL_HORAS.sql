@@ -1,0 +1,1 @@
+SELECT SUM(total_horas) total_horas FROM fato_atendimento

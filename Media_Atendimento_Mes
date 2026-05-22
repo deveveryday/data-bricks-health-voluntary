@@ -1,0 +1,41 @@
+--Média de atendimento por mês
+
+SELECT 
+    AVG(total_atendimentos) AS media_atendimentos_por_mes
+FROM (
+
+    SELECT 
+        MONTH(data_atendimento) AS numero_mes,
+        COUNT(*) AS total_atendimentos
+
+    FROM dw_health_dashboard.dim_data_atendimento
+
+    GROUP BY MONTH(data_atendimento)
+
+) tabela;
+
+
+
+
+
+
+
+
+
+--SELECT 
+ --   MONTHNAME(data_atendimento) AS mes, 
+ ---   COUNT(*) AS total_atendimentos           --- conta qtas linhas existem, conta quantos atendimentos existem em cada mês
+--FROM dw_health_dashboard.dim_data_atendimento
+--GROUP BY MONTHNAME(data_atendimento)
+--ORDER BY mes asc;
+
+-- Mostra o mês ordenado 
+--SELECT 
+    --MONTH(data_atendimento) AS numero_mes,
+    --MONTHNAME(data_atendimento) AS mes,
+    --COUNT(*) AS total_atendimentos
+--FROM dw_health_dashboard.dim_data_atendimento
+--GROUP BY 
+    --MONTH(data_atendimento),
+    --MONTHNAME(data_atendimento)
+--ORDER BY numero_mes asc;
